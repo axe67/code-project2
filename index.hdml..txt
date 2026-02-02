@@ -1,0 +1,98 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            background-color: #121c26;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 { font-size: 3rem; margin-bottom: 2rem; }
+        .valentine-word { color: #a3e635; }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            color: #333;
+            min-width: 350px;
+        }
+        .bear-img { width: 120px; margin-bottom: 1rem; }
+        .question { color: #e11d48; font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem; }
+        .btn-container { display: flex; justify-content: center; align-items: center; gap: 15px; }
+        .yes-button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .no-button {
+            background-color: #e5e7eb;
+            color: #374151;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Be My <span class="valentine-word">Valentine</span></h1>
+
+    <div class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJteGZ6bm9uaHhub3B6Znd6amZ6amZ6amZ6amZ6amZ6amZ6amZ6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" class="bear-img" alt="bear">
+        <div class="question">Will you be my Valentine?</div>
+        <div class="btn-container">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+    </div>
+
+    <script>
+        let messageIndex = 0;
+        const messages = [
+            "Are you sure?",
+            "Really sure??",
+            "Are you positive?",
+            "Poodie please...",
+            "Just think about it!",
+            "If you say no, I will be really sad...",
+            "I will be very sad...",
+            "I will be very very very sad...",
+            "Ok fine, I will stop asking...",
+            "Just kidding, say yes please! ❤️"
+        ];
+
+        function handleNoClick() {
+            const noButton = document.querySelector('.no-button');
+            const yesButton = document.querySelector('.yes-button');
+            
+            noButton.textContent = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+            
+            const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = ${currentSize * 1.5}px;
+        }
+
+        function handleYesClick() {
+            alert("Yay! Best day ever! ❤️");
+            // You can change this to a new URL if you want:
+            // window.location.href = "celebration.html";
+        }
+    </script>
+</body>
+</html>
